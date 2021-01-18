@@ -1,4 +1,5 @@
 import { SignUpController } from './signup'
+// import { HttpResponse, HttpRequest } from '../protocols/http'
 
 describe('SignUp Controller', () => {
   test('Should return 400 if no name is provided', () => {
