@@ -6,5 +6,6 @@ export default {
   transform: {
     '.*\\.ts$': 'ts-jest'
   },
-  testMatch: ['**/*.*.ts']
+  testMatch: ['**/*.*.ts'],
+  preset: '@shelf/jest-mongodb'
 }
