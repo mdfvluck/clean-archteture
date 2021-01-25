@@ -121,6 +121,6 @@ describe('Login Controller', () => {
   test('Should return 200 with a tokenAccess', async () => {
     const { sut } = makeSut()
     const httpResponse: HttpResponse = await sut.handle(makeHttpRequest())
-    expect(httpResponse).toEqual(ok('any_token'))
+    expect(httpResponse).toEqual(ok({ accessToken: 'any_token' }))
   })
 })
