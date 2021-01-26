@@ -1,4 +1,4 @@
-import { EmailValidator } from '../../presentation/protocols/email-validator'
+import { EmailValidator } from '../../../presentation/protocols/email-validator'
 import { makeSignUpValidation } from './signup-validation'
 import {
   ValidationComposite,
@@ -6,9 +6,9 @@ import {
   Validation,
   CompareFieldsValidation,
   EmailValidation
-} from '../../presentation/helpers/validators'
+} from '../../../presentation/helpers/validators'
 
-jest.mock('../../presentation/helpers/validators/validation-composite')
+jest.mock('../../../presentation/helpers/validators/validation-composite')
 
 describe('SignUp Validation', () => {
   const makeEmailValidator = (): EmailValidator => {
