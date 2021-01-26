@@ -31,7 +31,7 @@ describe('Login Controller', () => {
 
   const makeEmailValidator = (): EmailValidator => {
     class EmailValidatorStub implements EmailValidator {
-      isValid (email: string): boolean {
+      isValid (_: string): boolean {
         return true
       }
     }
