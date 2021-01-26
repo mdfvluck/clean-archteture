@@ -1,9 +1,9 @@
 import { EmailValidator } from '../../../presentation/protocols/email-validator'
 import { makeLoginUpValidation } from './login-validation'
+import { Validation } from '../../../presentation/protocols/validation'
 import {
   ValidationComposite,
   RequiredFieldValidation,
-  Validation,
   EmailValidation
 } from '../../../presentation/helpers/validators'
 
