@@ -21,17 +21,21 @@ describe('Db Authentication', () => {
   const makeLoadAccountByEmailRepo = (): any => {
     class LoadAccountByEmailRepositoryStub implements LoadAccountByEmailRepository {
       async load (_email: string): Promise<AccountModel> {
-        return new Promise((resolve) => resolve({
-          id: 'any_id',
-          name: 'any_name',
-          email: 'any_email@email.com',
-          password: 'any_password'
-        }))
+        return new Promise((resolve) => resolve(makeFakeAccount()))
       }
     }
     return new LoadAccountByEmailRepositoryStub()
   }
-  const makeFakeAccount = (): AuthenticationModel => {
+  const makeFakeAccount = (): AccountModel => {
+    return {
+      id: 'any_id',
+      name: 'any_name',
+      email: 'any_email@email.com',
+      password: 'any_password'
+    }
+  }
+
+  const makeFakeAuth = (): AuthenticationModel => {
     return {
       email: 'any_email@email.com',
       password: 'any_password'
@@ -41,7 +45,7 @@ describe('Db Authentication', () => {
   test('Should call LoadAccountByEmailRepository with correct email', async () => {
     const { sut, loadAccountByEmailRepository } = makeSut()
     const loadSpy = jest.spyOn(loadAccountByEmailRepository, 'load')
-    await sut.auth(makeFakeAccount())
-    expect(loadSpy).toHaveBeenCalledWith(makeFakeAccount().email)
+    await sut.auth(makeFakeAuth())
+    expect(loadSpy).toHaveBeenCalledWith(makeFakeAuth().email)
   })
 })
